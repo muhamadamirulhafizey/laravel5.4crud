@@ -6,7 +6,7 @@
     <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
+       <!-- <th>ID</th> -->
         <th>Title</th>
         <th>Post</th>
         <th colspan="2">Action</th>
@@ -15,7 +15,7 @@
     <tbody>
       @foreach($cruds as $post)
       <tr>
-        <td>{{$post['id']}}</td>
+       <!--  <td>{{$post['id']}}</td> -->
         <td>{{$post['title']}}</td>
         <td>{{$post['post']}}</td>
         <td><a href="{{action('CRUDController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></td>
