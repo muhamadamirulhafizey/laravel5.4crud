@@ -69,6 +69,9 @@ class CRUDController extends Controller
     public function edit($id)
     {
         //
+        $crud = Crud::find($id);
+        
+        return view('crud.edit', compact('crud','id'));
     }
 
     /**
@@ -80,9 +83,12 @@ class CRUDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $crud = Crud::find($id);
+        $crud->title = $request->get('title');
+        $crud->post = $request->get('post');
+        $crud->save();
+        return redirect('/crud');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -92,5 +98,9 @@ class CRUDController extends Controller
     public function destroy($id)
     {
         //
+        $crud = Crud::find($id);
+      $crud->delete();
+
+      return redirect('/crud');
     }
 }
